@@ -10,7 +10,7 @@ This project contains 4 folders:
 - example: an example of using the shopping cart library
 - doc: contains the javadoc documentations
 
-In order to use the library, just download the shoppingcart-{version number}.jar from lib library and include it in your project build path.
+In order to use the library, just download the shoppingcart-{latest version number}.jar from lib library and include it in your project build path.
 
 For any product/item that you want to add into the shopping cart, just create a class which implements the Saleable interface and override two methods:
 
