@@ -169,6 +169,8 @@ public class Cart implements Serializable {
 	 * @return A map from product to its quantity in this shopping cart
 	 */
 	public Map<Saleable, Integer> getItemWithQuantity() {
+		Map<Saleable, Integer> cartItemMap = new HashMap<Saleable, Integer>();
+		cartItemMap.putAll(this.cartItemMap);
 		return cartItemMap;
 	}
 	
