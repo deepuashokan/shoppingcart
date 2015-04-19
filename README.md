@@ -14,7 +14,7 @@ This project contains 4 folders:
 
 In order to use the library, just download the shoppingcart-{latest version number}.jar from lib folder and include it in your project build path.
 
-For any product/item that you want to add into the shopping cart, just create a class which implements the Saleable interface and override two methods:
+For any product/item that you want to add into the shopping cart, just create a class which implements the Saleable interface override equals(), hashCode() and these two methods from the interface:
 
 - getName(): should return the name of the item
 - getPrice(): should return the price of the item
