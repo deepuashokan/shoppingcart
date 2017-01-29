@@ -1,7 +1,6 @@
 package com.tonyvu.sc.example;
 
 import java.math.BigDecimal;
-
 import com.tonyvu.sc.model.Saleable;
 
 public class BoardGame implements Saleable {
@@ -22,12 +21,10 @@ public class BoardGame implements Saleable {
 		this.price = price;
 	} 
 	
-	@Override
 	public BigDecimal getPrice() {
 		return price;
 	}
 
-	@Override
 	public String getName() {
 		return name;
 	}

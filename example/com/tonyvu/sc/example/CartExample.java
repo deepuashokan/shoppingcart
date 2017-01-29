@@ -3,7 +3,6 @@ package com.tonyvu.sc.example;
 import java.math.BigDecimal;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import com.tonyvu.sc.model.Cart;
 import com.tonyvu.sc.model.Saleable;
 

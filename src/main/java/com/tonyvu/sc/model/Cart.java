@@ -2,7 +2,7 @@ package com.tonyvu.sc.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -20,7 +20,7 @@ public class Cart implements Serializable {
 
 	private static final long serialVersionUID = 42L;
 	
-	private Map<Saleable, Integer> cartItemMap = new HashMap<Saleable, Integer>();
+	private Map<Saleable, Integer> cartItemMap = new LinkedHashMap<Saleable, Integer>();
 	private BigDecimal totalPrice = BigDecimal.ZERO;
 	private int totalQuantity = 0;
 	
@@ -33,7 +33,7 @@ public class Cart implements Serializable {
 	 */
 	public void add(final Saleable sellable, int quantity) {
 		if (cartItemMap.containsKey(sellable)) {
-			cartItemMap.replace(sellable, cartItemMap.get(sellable) + quantity);
+			cartItemMap.put(sellable, cartItemMap.get(sellable) + quantity);
 		} else {
 			cartItemMap.put(sellable, quantity);
 		}
@@ -57,7 +57,7 @@ public class Cart implements Serializable {
 		int productQuantity = cartItemMap.get(sellable);
 		BigDecimal productPrice = sellable.getPrice().multiply(BigDecimal.valueOf(productQuantity));
 		
-		cartItemMap.replace(sellable, quantity);
+		cartItemMap.put(sellable, quantity);
 		
 		totalQuantity = totalQuantity - productQuantity + quantity;
 		totalPrice = totalPrice.subtract(productPrice).add(sellable.getPrice().multiply(BigDecimal.valueOf(quantity)));
@@ -81,7 +81,7 @@ public class Cart implements Serializable {
 		if (productQuantity == quantity) {
 			cartItemMap.remove(sellable);
 		} else {
-			cartItemMap.replace(sellable, productQuantity - quantity);
+			cartItemMap.put(sellable, productQuantity - quantity);
 		}
 		
 		totalPrice = totalPrice.subtract(sellable.getPrice().multiply(BigDecimal.valueOf(quantity)));
@@ -169,7 +169,7 @@ public class Cart implements Serializable {
 	 * @return A map from product to its quantity in this shopping cart
 	 */
 	public Map<Saleable, Integer> getItemWithQuantity() {
-		Map<Saleable, Integer> cartItemMap = new HashMap<Saleable, Integer>();
+		Map<Saleable, Integer> cartItemMap = new LinkedHashMap<Saleable, Integer>();
 		cartItemMap.putAll(this.cartItemMap);
 		return cartItemMap;
 	}
@@ -178,9 +178,9 @@ public class Cart implements Serializable {
 	public String toString() {
 		StringBuilder strBuilder = new StringBuilder();
 		for (Entry<Saleable, Integer> entry: cartItemMap.entrySet()) {
-			strBuilder.append(String.format("Product: %s, Unit Price: %f, Quantity: %d%n", entry.getKey().getName(), entry.getKey().getPrice(), entry.getValue()));
+			strBuilder.append(String.format("Product: %s, Unit Price: %.2f, Quantity: %d%n", entry.getKey().getName(), entry.getKey().getPrice(), entry.getValue()));
 		}
-		strBuilder.append(String.format("Total Quantity: %d, Total Price: %f", totalQuantity, totalPrice));
+		strBuilder.append(String.format("Total Quantity: %d, Total Price: %.2f", totalQuantity, totalPrice));
 		
 		return strBuilder.toString();
 	}

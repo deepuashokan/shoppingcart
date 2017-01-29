@@ -1,9 +1,9 @@
 shoppingcart
 ============
 
-A java-based shoppingcart.
+## Usage
 
-Note that you will need java 8.
+A java-based shoppingcart.
 
 This project contains 4 folders:
 
@@ -22,3 +22,26 @@ For any product/item that you want to add into the shopping cart, just create a 
 A Cart object represents a shopping cart. The Cart class provides various methods to manipulate items and quantities on the shopping cart like adding items, updating quantities, removing items,... For more details, check out the javadoc from here: https://rawgit.com/tonyvu2014/shoppingcart/master/doc/index.html
 
 For most of web-based shopping cart, you will have to store and retain the cart object in session by yourself.
+
+
+## Build
+
+To run the unit tests:
+
+``` sh
+
+mvn test
+
+```
+
+To create jar package, run:
+
+``` sh
+
+mvn package
+
+````
+
+
+
+
