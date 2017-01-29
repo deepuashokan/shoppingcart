@@ -1,6 +1,8 @@
 shoppingcart
 ============
 
+[![Build Status](https://travis-ci.org/tonyvu2014/shoppingcart.svg?branch=master)](https://travis-ci.org/tonyvu2014/shoppingcart)
+
 ## Usage
 
 A java-based shoppingcart.
