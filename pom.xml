@@ -5,7 +5,7 @@
 	<groupId>com.tonyvu.sc</groupId>
 	<artifactId>shoppingcart</artifactId>
 	<version>1.3.0</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>shoppingcart</name>
 	<url>http://maven.apache.org</url>
 
@@ -14,7 +14,7 @@
 		<jdk.version>1.7</jdk.version>
 		<junit.version>4.10</junit.version>
 		<maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>
-		<maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
+		<maven.war.plugin.version>3.3.1</maven.war.plugin.version>
 		<maven.surefire.plugin.version>2.17</maven.surefire.plugin.version>
 		<mockito.version>1.9.5</mockito.version>
 		<maven.cobertura.plugin.version>2.7</maven.cobertura.plugin.version>
@@ -48,8 +48,12 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven.jar.plugin.version}</version>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven.war.plugin.version}</version>
+				<configuration>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
